@@ -1,0 +1,22 @@
+{
+  "name": "ng-klaverjassen",
+  "description": "Angular app for klaverjassen",
+  "main": "index.js",
+  "authors": [
+    "Hans Blum"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "klaverjassen",
+    "angularjs"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
