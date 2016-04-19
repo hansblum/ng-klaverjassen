@@ -1,15 +1,6 @@
 (function(){
+    'use strict';
 
-    angular.module('ngKlaverjassen', []);
-
-    angular.module('ngKlaverjassen')
-        .config(configure);
-
-
-    function configure() {
-        this.configuration = {
-            language : 'nl'
-        };
-    }
+    angular.module('app',[]);
 
 })();
