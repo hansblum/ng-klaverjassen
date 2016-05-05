@@ -6,8 +6,8 @@
         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
         xmlns="http://www.w3.org/2000/svg"
         viewbox="0 0 200 250"
-        width="100"
-        height="125"
+        width="200"
+        height="250"
         id="svg2"
         version="1.0">
     <g id="layer1">
@@ -20,7 +20,7 @@
        style="font-size:32px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Nimbus Roman No9 L"
        x="17.1875"
        y="40"
-       id="text3225""><tspan
+       id="text3225"><tspan
          id="tspan3227"
          x="17.1875"
          y="40"

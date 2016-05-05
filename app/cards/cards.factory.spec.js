@@ -69,8 +69,25 @@
             }
             expect(cards).to.be.truthy;
             expect(cards.length).to.equal(32);
-            expect(cards).not.to.equal(cardsFactory.CARDS);
+            expect(hasDuplicates(cards)).to.be.falsy;
         });
+
+        function hasDuplicates(cards) {
+            var sortedCards = angular.copy(cards).sort();
+            var firstCard, secondCard;
+            firstCard = sortedCards[0];
+            for (var i = 1; i < cards.length; i++) {
+                secondCard = cards[i];
+                if (firstCard.id===secondCard.id) {
+                    return true;
+                }
+                if (firstCard.color === secondCard.color && firstCard.symbol === secondCard.symbol) {
+                    return true;
+                }
+                firstCard = secondCard;
+            }
+            return false;
+        }
 
 
     });

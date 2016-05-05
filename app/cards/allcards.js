@@ -3,7 +3,9 @@
         .directive('allCards', function() {
             return {
                 restrict: 'E',
-                templateUrl: '/templates/cards/cards.html'
+                templateUrl: '/templates/cards/cards.html',
+                controller: 'CardsController',
+                controllerAs: 'cards'
             };
         })
 })();
