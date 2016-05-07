@@ -1,5 +1,9 @@
 <div class="container">
-    <div class="row" ng-repeat="player in kjTable.players">
-        {{player.getName()}}
-    </div>
+    <player player="game.players.north"></player>
+    <hr>
+    <player player="game.players.east"></player>
+    <hr>
+    <player player="game.players.south"></player>
+    <hr>
+    <player player="game.players.west"></player>
 </div>

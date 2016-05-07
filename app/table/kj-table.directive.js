@@ -4,12 +4,13 @@
     angular.module('app')
         .directive('kjTable', kjTableDirective);
 
-    function kjTableDirective() {
+    kjTableDirective.$inject = ['$log'];
+    function kjTableDirective($log) {
         return {
             restrict: 'E',
             templateUrl: '/templates/table/kj-table.html',
-            link: function(scope, elem, attr) {
-
+            scope: {
+                game: '='
             }
         };
     }

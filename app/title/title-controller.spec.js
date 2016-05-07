@@ -20,7 +20,6 @@
         it ('has the correct page title.', function() {
             var scope = {};
             var pageTitleController = $controller('PageTitleController', {$scope: scope});
-            console.log(pageTitleController);
             expect(pageTitleController.title).to.equal('Ik kan klaverjassen met AngularJS');
         });
     });

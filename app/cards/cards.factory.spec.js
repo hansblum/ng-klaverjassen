@@ -64,9 +64,6 @@
 
         it ('gives us 32 shuffled cards', function() {
             var cards = cardsFactory.getShuffledCards();
-            for (var i = 0; i < cards.length; i++) {
-                console.log(cards[i]);
-            }
             expect(cards).to.be.truthy;
             expect(cards.length).to.equal(32);
             expect(hasDuplicates(cards)).to.be.falsy;

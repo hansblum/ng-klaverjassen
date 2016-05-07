@@ -8,7 +8,9 @@
 </head>
 <body ng-cloak>
     <page-title></page-title>
-    <kj-table ng-controller="TableController as kjTable"></kj-table>
+    <div ng-controller="GameController as vm" class="klaverjas">
+        <kj-table game="vm.game"></kj-table>
+    </div>
     <!--<all-cards class="row"></all-cards>-->
     <script src="/jquery/dist/jquery.min.js"></script>
     <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -20,8 +22,11 @@
     <script src="/cards/cards.factory.js"></script>
     <script src="/cards/card.js"></script>
     <script src="/cards/allcards.js"></script>
+    <script src="/game/game.service.js"></script>
+    <script src="/game/game.controller.js"></script>
     <script src="/table/kj-table.directive.js"></script>
-    <script src="/table/kj-table.controller.js"></script>
+    <!--<script src="/table/kj-table.controller.js"></script>-->
     <script src="/player/player.service.js"></script>
+    <script src="/player/player.directive.js"></script>
 </body>
 </html>

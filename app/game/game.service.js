@@ -3,48 +3,41 @@
     angular.module('app')
         .service('gameService', gameService);
 
-    function gameService() {
-        var game = this;
-        game.players = [ new Player('you'), new Player('Koos'), new Player('Joop'), new Player('Gerrit')];
-        game.dealer = 0;
-
-        game.deal = deal;
-
-        function deal(cards) {
-            var dealingCards = angular.copy(cards);
-            dealThreeCardsToEachPlayer(dealingCards);
-            dealTwoCardsToEachPlayer(dealingCards);
-            dealThreeCardsToEachPlayer(dealingCards);
+    gameService.$inject = ['playerService', 'cardsFactory'];
+    function gameService(playerService, cardsFactory) {
+        var self = this;
+        self.game = undefined;
+        this.startNewGame = function() {
+            self.game = new Game(playerService.getPlayers(), cardsFactory.getShuffledCards(), playerService.getPlayers().south);
+            self.game.deal();
+            return self.game;
         }
 
-        function dealTwoCardsToEachPlayer(dealingCards) {
-            dealCardsToEachPlayer(game.dealer, 2, dealingCards);
+    }
+
+    function Game(players, cards, dealer) {
+        var self = this;
+        this.players = players;
+        this.dealer = dealer;
+        this.leader = dealer.next();
+        this.cards = cards;
+
+        this.deal = function deal() {
+            var cardsToDeal = angular.copy(self.cards);
+            dealCardsToEachPlayer(cardsToDeal, 3);
+            dealCardsToEachPlayer(cardsToDeal, 2);
+            dealCardsToEachPlayer(cardsToDeal, 3);
         }
 
-        function dealThreeCardsToEachPlayer(dealingCards) {
-            dealCardsToEachPlayer(game.dealer, 3, dealingCards);
-        }
-
-        function dealCardsToEachPlayer(dealer, amount, dealingCards) {
-            for (var i=0; i<game.players.length;i++) {
-                var dealCards = dealingCards.slice(0,amount+1);
-                dealingCards.splice(0, amount);
-                var player = game.players[(dealer + i) % game.players.length];
+        function dealCardsToEachPlayer(cardsToDeal, amount) {
+            var players = [ self.dealer.next(), self.dealer.next().next(), self.dealer.next().next().next(), self.dealer ];
+            for (var i=0; i<players.length; i++) {
+                var player = players[i];
+                var dealCards = cardsToDeal.slice(0, amount);
+                cardsToDeal.splice(0, amount);
                 player.receiveCards(dealCards);
             }
         }
-    }
-
-    function Player(name) {
-        var player = this;
-        player.name = name;
-        player.hand = [];
-
-        function receiveCards(cards) {
-            player.hand.concat(cards);
-        }
-
-        this.receiveCards = receiveCards;
 
     }
 })();

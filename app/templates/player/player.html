@@ -1,0 +1,6 @@
+'<div class="row" ng-class="{'game-leader': player.gameLeader}">
+    <div class="col-xs-offset-4 col-xs-4">
+        <h2>{{ player.getName() }}</h2>
+        <card ng-repeat="card in player.hand" card="card"></card>
+    </div>
+</div>

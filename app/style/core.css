@@ -1,7 +1,16 @@
+.klaverjas {
+    background-color: #008800;
+    color: white;
+}
 img.card {
     width: 200px;
     height: 250px;
     padding: 8px;
+}
+
+.game-leader {
+    background-color: green;
+    color: white;
 }
 
 @media (max-width: 479px) {
