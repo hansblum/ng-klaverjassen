@@ -2,13 +2,12 @@
     'use strict';
 
     angular.module('app')
-        .directive('kjTable', kjTableDirective);
+        .directive('klaverjasTable', klaverjasTableDirective);
 
-    kjTableDirective.$inject = ['$log'];
-    function kjTableDirective($log) {
+    function klaverjasTableDirective() {
         return {
             restrict: 'E',
-            templateUrl: '/templates/table/kj-table.html',
+            templateUrl: '/templates/table/klaverjas-table.html',
             scope: {
                 game: '='
             }

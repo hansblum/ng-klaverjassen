@@ -1,19 +1,19 @@
-(function(){
+(function () {
     angular.module('app')
         .service('playerService', playerService);
 
     function playerService() {
         var self = this;
-        this.players = undefined;
-        this.createPlayers = createPlayers;
-        this.getPlayers = getPlayers;
+        self.players = undefined;
+        self.createPlayers = createPlayers;
+        self.getPlayers = getPlayers;
 
         function createPlayers(northName, eastName, southName, westName) {
             self.players = {
                 north: new Player(northName),
-                east : new Player(eastName),
-                south : new Player(southName),
-                west : new Player(westName)
+                east: new Player(eastName),
+                south: new Player(southName),
+                west: new Player(westName)
             };
             self.players.south
                 .next(self.players.west)
@@ -22,22 +22,28 @@
                 .next(self.players.south);
         }
 
-        function getPlayers () {
+        function getPlayers() {
             if (!self.players) {
                 self.createPlayers('Barend', 'Gerrit', 'Joop', 'Hein');
             }
             return self.players;
         }
-        
+
         function Player(name) {
-            var COLOR_ORDER = ['spades', 'hearts', 'diamonds', 'clubs'];
-            var SYMBOL_ORDER = [ 'ace', 'king', 'queen', 'jack', 'ten', 'nine', 'eight', 'seven'];
+            // Arranging the cards alternately in red and black improves the user experience.
+            // Confusion can still occur when player does not have any spades or diamonds, but there
+            // seems to be no reasonable solution for that.
+            var COLOR_ORDER = ['hearts', 'spades', 'diamonds', 'clubs'];
+            var SYMBOL_ORDER = ['ace', 'king', 'queen', 'jack', 'ten', 'nine', 'eight', 'seven'];
 
             var self = this;
-            this.name = name;
-            this.nextPlayer = undefined;
-            this.gameLeader = false;
-            this.hand = [];
+            self.name = name;
+            self.nextPlayer = undefined;
+            self.gameLeader = false;
+            self.hand = [];
+            self.receiveCards = receiveCards;
+            self.next = next;
+            self.getName = getName;
 
             function getName() {
                 return self.name;
@@ -57,16 +63,12 @@
 
             function cardsCompare(card1, card2) {
                 var result = COLOR_ORDER.indexOf(card1.color) - COLOR_ORDER.indexOf(card2.color);
-                if (result==0) {
+                if (result === 0) {
                     result = SYMBOL_ORDER.indexOf(card1.symbol) - SYMBOL_ORDER.indexOf(card2.symbol);
                 }
                 return result;
             }
 
-            this.receiveCards = receiveCards;
-            this.next = next;
-            this.getName = getName;
         }
-
     }
 })();
