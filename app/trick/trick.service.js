@@ -16,7 +16,7 @@
         self.createTrick = createTrick;
 
         function createTrick(leader, trumpColor) {
-            self.trick = new Trick(leader, trumpColor, self.validSides, self.validColors, self.validSymbols);
+            self.trick = new Trick(leader, trumpColor, self.SIDES, self.COLORS, self.SYMBOLS);
             return self.trick;
         }
 
