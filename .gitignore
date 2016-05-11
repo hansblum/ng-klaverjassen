@@ -35,5 +35,5 @@ node_modules
 # Bower components
 bower_components
 
-# IDEgi config files.
+# IDE config files.
 .idea
