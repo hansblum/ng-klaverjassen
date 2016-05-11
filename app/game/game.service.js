@@ -1,6 +1,7 @@
 (function() {
     'use strict';
     angular.module('app')
+        .constant('SIDES', ['north', 'east', 'south', 'west'])
         .service('gameService', gameService);
 
     gameService.$inject = ['playerService', 'cardsFactory'];

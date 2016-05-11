@@ -1,12 +1,13 @@
 (function() {
     'use strict';
     angular.module('app')
+        .constant('COLORS', ['hearts', 'spades', 'diamonds', 'clubs'])
+        .constant('SYMBOLS', ['ace', 'king', 'queen', 'jack', 'ten', 'nine', 'eight', 'seven'])
         .factory('cardsFactory', cardsFactory);
 
-    function cardsFactory() {
+    cardsFactory.$inject = ['COLORS', 'SYMBOLS'];
+    function cardsFactory(COLORS, SYMBOLS) {
 
-        var COLORS = ['clubs', 'diamonds', 'hearts', 'spades'];
-        var SYMBOLS = ['seven', 'eight', 'nine', 'ten', 'jack', 'queen', 'king', 'ace'];
         var CARDS = [];
 
         createCards();
