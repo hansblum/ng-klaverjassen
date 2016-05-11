@@ -10,9 +10,7 @@
         beforeEach(inject(function(_$controller_) {
             $controller = _$controller_;
         }));
-
-
-
+        
         it('runs a unit test', function() {
             expect(true).to.be.ok;
         });
@@ -20,7 +18,7 @@
         it ('has the correct page title.', function() {
             var scope = {};
             var pageTitleController = $controller('PageTitleController', {$scope: scope});
-            expect(pageTitleController.title).to.equal('Ik kan klaverjassen met AngularJS');
+            expect(pageTitleController.title).to.equal('Klaverjassen met AngularJS');
         });
     });
 })();

@@ -4,6 +4,6 @@
 
     function PageTitleController() {
         var vm = this;
-        vm.title = 'Ik kan klaverjassen met AngularJS';
+        vm.title = 'Klaverjassen met AngularJS';
     }
 })();

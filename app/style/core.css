@@ -1,41 +1,46 @@
+body {
+    background-color: #008800;
+    color: white;
+}
+
 .klaverjas {
     background-color: #008800;
     color: white;
 }
 img.card {
-    width: 200px;
-    height: 250px;
+    width: 160px;
+    height: 200px;
     padding: 8px;
 }
 
 @media (max-device-width: 479px) {
     img.card {
-        width: 100px;
-        height: 125px;
+        width: 80px;
+        height: 100px;
         padding: 4px;
     }
 }
 
 @media (min-device-width:480px ) and (max-device-width: 779px) {
     img.card {
-        width: 120px;
-        height: 150px;
+        width: 100px;
+        height: 125px;
         padding: 5px;
     }
 }
 
 @media (min-device-width: 780px) and (max-device-width: 991px) {
     img.card {
-        width: 148px;
-        height: 179px;
+        width: 120px;
+        height: 150px;
         padding: 6px;
     }
 }
 
 @media (min-device-width: 992px) and (max-device-width: 1280px) {
     img.card {
-        width: 180px;
-        height: 225px;
+        width: 140px;
+        height: 175px;
         padding: 7px;
     }
 }
