@@ -3,30 +3,30 @@
 
     describe('Proof correct working of cards creation', function() {
 
-        var cardsFactory;
+        var cardsService;
 
         beforeEach(function() {
             module('app');
 
-            inject(function (_cardsFactory_) {
-                cardsFactory = _cardsFactory_;
+            inject(function (_cardsService_) {
+                cardsService = _cardsService_;
             });
         });
 
         it ('properly injects the $service but does not call getCards', function() {
-            expect(cardsFactory).to.be.truthy;
-            expect(cardsFactory.getCards()).not.to.be.called;
+            expect(cardsService).to.be.truthy;
+            expect(cardsService.getCards()).not.to.be.called;
         });
 
         it ('gives a copy op the CARDS array when getCards is called', function() {
-            var cards = cardsFactory.getCards();
+            var cards = cardsService.getCards();
             expect(cards).to.be.truthy;
             expect(cards.length).to.equal(32);
-            expect(cards).not.to.equal(cardsFactory.CARDS);
+            expect(cards).not.to.equal(cardsService.CARDS);
         });
 
         it ('returns a collection of cards which contains all the cards.', function(){
-            var cards = cardsFactory.getCards();
+            var cards = cardsService.getCards();
             expectCardToEqual(cards[0], { id: 0, color: 'hearts', symbol: 'ace'});
             expectCardToEqual(cards[1], { id: 1, color: 'hearts', symbol: 'king'});
             expectCardToEqual(cards[2], { id: 2, color: 'hearts', symbol: 'queen'});
@@ -63,7 +63,7 @@
         });
 
         it ('gives us 32 shuffled cards', function() {
-            var cards = cardsFactory.getShuffledCards();
+            var cards = cardsService.getShuffledCards();
             expect(cards).to.be.truthy;
             expect(cards.length).to.equal(32);
             expect(hasDuplicates(cards)).to.be.falsy;

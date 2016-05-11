@@ -2,8 +2,8 @@
     angular.module('app')
         .controller('CardsController', CardsController);
 
-    CardsController.$inject = ['cardsFactory'];
-    function CardsController(cardsFactory) {
+    CardsController.$inject = ['cardsService'];
+    function CardsController(cardsService) {
         var vm = this;
         vm.cards = [];
         vm.shuffle = shuffle;
@@ -12,12 +12,12 @@
         init();
 
         function shuffle() {
-            vm.cards = cardsFactory.getShuffledCards();
+            vm.cards = cardsService.getShuffledCards();
             slice();
         }
 
         function init() {
-            vm.cards = cardsFactory.getCards();
+            vm.cards = cardsService.getCards();
             slice();
         }
 

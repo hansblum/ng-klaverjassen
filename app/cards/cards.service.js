@@ -3,20 +3,16 @@
     angular.module('app')
         .constant('COLORS', ['hearts', 'spades', 'diamonds', 'clubs'])
         .constant('SYMBOLS', ['ace', 'king', 'queen', 'jack', 'ten', 'nine', 'eight', 'seven'])
-        .factory('cardsFactory', cardsFactory);
+        .service('cardsService', CardsService);
 
-    cardsFactory.$inject = ['COLORS', 'SYMBOLS'];
-    function cardsFactory(COLORS, SYMBOLS) {
-
-        var CARDS = [];
+    CardsService.$inject = ['COLORS', 'SYMBOLS'];
+    function CardsService(COLORS, SYMBOLS) {
+        var self=this;
+        this.CARDS = []
+        this.getCards = getCards;
+        this.getShuffledCards = getShuffledCards;
 
         createCards();
-
-        return {
-            getCards : getCards,
-            getShuffledCards : getShuffledCards,
-            CARDS: CARDS
-        };
 
         /**
          * Gives a copy of the CARDS, to avoid global manipulation of the cards./
@@ -25,7 +21,7 @@
         // please also note that returning an immutable array was considered in the design.
         // [Unf|F]ortunatly, we came to the conclusion that immutability would not solve an important problem.
         function getCards() {
-            return angular.copy(CARDS);
+            return angular.copy(self.CARDS);
         }
 
         /**
@@ -47,10 +43,10 @@
          * Create all 32 cards in the Clubjacking game.
          */
         function createCards() {
-            CARDS = [];
+            self.CARDS = [];
             for (var colorNumber=0; colorNumber<COLORS.length;colorNumber++) {
                 for (var symbolNumber=0; symbolNumber<SYMBOLS.length; symbolNumber++) {
-                    CARDS.push({
+                    self.CARDS.push({
                         id: colorNumber * 8 + symbolNumber,
                         color: COLORS[colorNumber],
                         symbol: SYMBOLS[symbolNumber]

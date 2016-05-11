@@ -4,12 +4,12 @@
         .constant('SIDES', ['north', 'east', 'south', 'west'])
         .service('gameService', gameService);
 
-    gameService.$inject = ['playerService', 'cardsFactory'];
-    function gameService(playerService, cardsFactory) {
+    gameService.$inject = ['playerService', 'cardsService'];
+    function gameService(playerService, cardsService) {
         var self = this;
         self.game = undefined;
         this.startNewGame = function() {
-            self.game = new Game(playerService.getPlayers(), cardsFactory.getShuffledCards(), playerService.getPlayers().south);
+            self.game = new Game(playerService.getPlayers(), cardsService.getShuffledCards(), playerService.getPlayers().south);
             self.game.deal();
             return self.game;
         }

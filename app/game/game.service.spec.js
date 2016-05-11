@@ -4,15 +4,15 @@
     describe("Game service tests", function() {
 
         var gameService;
-        var cardFactory;
+        var cardsService;
 
         beforeEach(function() {
             module('app');
             inject(function(_gameService_){
                 gameService = _gameService_;
             });
-            inject(function(_cardsFactory_) {
-                cardFactory = _cardsFactory_;
+            inject(function(_cardsService_) {
+                cardsService = _cardsService_;
             });
         });
 
