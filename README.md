@@ -6,7 +6,7 @@ I was playing a lot of klaverjas on my android phone during the last few months.
 was not very friendly to the battery life, which went down from two days to four hours. In addition, the ads in the app
 exceeded my annoyment threshold by several light years.
 
-I didn't expect the pro version (costing &euro; 2.44) would solve the battery issue, so I decided to give it a go myself.
+I didn't expect the pro version would solve the battery issue, so I decided to give it a go myself.
 
 ## How to play
 
